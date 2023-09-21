@@ -54,15 +54,12 @@ namespace ContactApp.Model
                 return null;
             }
         }
-        private static bool CurrentUserIsAdmin()
-        {
-            return true;
-        }
+       
         public  User NewUser(string name, int age, char gender)
         {
             try
             {
-                if (!CurrentUserIsAdmin())
+                if (!IsAdmin)
                 {
                     throw new InvalidOperationException("Only admin can access");
                 }
@@ -97,7 +94,7 @@ namespace ContactApp.Model
         {
             try
             {
-                if (!CurrentUserIsAdmin())
+                if (!IsAdmin)
                 {
                     throw new InvalidOperationException("Only admin can access");
                 }
@@ -211,7 +208,7 @@ namespace ContactApp.Model
         {
             try
             {
-                if (!CurrentUserIsAdmin())
+                if (!IsAdmin)
                 {
                     throw new InvalidOperationException("Only Admin can access");
                 }
@@ -247,7 +244,7 @@ namespace ContactApp.Model
         {
             try
             {
-                if (!CurrentUserIsAdmin())
+                if (!IsAdmin)
                 {
                     throw new InvalidOperationException("Only Admin Can Access");
                 }
